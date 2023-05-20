@@ -4,7 +4,7 @@ import { Keyboard, ActivityIndicator } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import api from '../services/api';
 import colors from './colors';
-import { Container, Form, Input, SubmitButton, List, Card, Avatar, Name , Gender , Status, ProfileButton, ProfileButtonText } from './styles';
+import { Container, Form, Input, SubmitButton, List, Card, Avatar, Name , Gender , Status, ProfileButton, ProfileButtonText, InfoCharacter } from './styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class Cards extends Component {
@@ -31,28 +31,44 @@ export default class Cards extends Component {
         }
     }
 
+    checkIfItemExists = async (key) => {
+        try {
+          const value = await AsyncStorage.getItem(key);
+          const itemExists = value !== null;
+          return itemExists;
+        } catch (error) {
+          console.error('Erro ao verificar a existência do item:', error);
+          return false;
+        }
+      };
+
     handleAddCard = async () => {
-        console.log("Entrou em handleaddCard")
+        
       try {
 
         const {cards, newCard} = this.state;
 
         this.setState({ loading: true})
-
+        
         const response = await api.get(`/character/?name=${newCard}`);
+        
 
+        const res = response.data.results[0];
+
+          
         const data =  {
-            id:response.data.results[0].id,
-            name:response.data.results[0].name,
-            status:response.data.results[0].status,
-            gender:response.data.results[0].gender,
-            avatar:response.data.results[0].image,
-            location: response.data.results[0].location,
-            species: response.data.results[0].species,
-            created: response.data.results[0].created,
+            id:res.id,
+            name:res.name,
+            status:res.status,
+            gender:res.gender,
+            avatar:res.image,
+            location: res.name,
+            species: res.species,
+            created: res.created,
+            origin: res.origin.name,
+            episode: res.episode[0]
         };
-        console.log("Data:------------------------------------------------------------\n ")
-        console.log(data.status)
+
 
         this.setState({
             cards: [...cards, data],
@@ -102,6 +118,9 @@ export default class Cards extends Component {
                               <Avatar source={{ uri: item.avatar}} />
                             </TouchableOpacity>
                             <Name>{ item.name }</Name>
+                            <InfoCharacter> {item.status} </InfoCharacter>
+                            <InfoCharacter> {item.location} </InfoCharacter>
+                            <InfoCharacter>Episódio:  {item.episode} </InfoCharacter>
 
                             <ProfileButton onPress={() => {
                                 this.props.navigation.navigate('detalhes', { card: item});

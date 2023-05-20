@@ -3,6 +3,7 @@ import api from '../services/api'
 import { Container, AvatarDetalhes,  TxtDetalhes, Header,  ProfileButton, ProfileButtonText} from './styles';
 import colors from './colors'
 
+
 export default class Detalhes extends Component{
     state = {
         detalhes: [],
@@ -16,12 +17,14 @@ export default class Detalhes extends Component{
 
         this.setState({ detalhes: response.data});
     }
+   
 
     render()
     {
         const {route} = this.props;
         const {card} = route.params;
 
+  
         return (
             <Container>
                 <Header>
@@ -31,6 +34,7 @@ export default class Detalhes extends Component{
                     <TxtDetalhes>Status:  {card.status}</TxtDetalhes>
                     <TxtDetalhes>Espécie: {card.species}</TxtDetalhes>
                     <TxtDetalhes>Criado em: {card.created}</TxtDetalhes>
+                    <TxtDetalhes>Origem: {card.origin}</TxtDetalhes>
                 </Header>
                 <ProfileButton onPress={() => {
                     this.props.navigation.navigate('cards');

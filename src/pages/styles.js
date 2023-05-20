@@ -67,6 +67,10 @@ export const Name = styled.Text`
     text-align: center;
 `;
 
+export const InfoCharacter = styled(Name)`
+    font-size: 14px;
+`;
+
 export const Gender = styled.Text`
     font-size: 14px;
     color: ${colors.textoPrincipal};
