@@ -1,34 +1,35 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
+import colors from './colors'
 
 export const Container = styled.View`
     flex: 1;
     padding: 30px;
-    backgroundColor: #380B61;
+    backgroundColor: ${colors.background};
 `;
 
 export const Form = styled.View`
     flex-direction: row;
     padding-bottom: 20px;
     border-bottom-width: 1px;
-    border-color: #eee;
+    border-color: ${colors.borda};
 `;
 
 export const Input = styled.TextInput.attrs({
-    placeholderTextColor:'#999'
+    placeholderTextColor: colors.textoPrincipal
 })`
     flex: 1;
     height: 40px;
-    background: #eee;
+    background: ${colors.textFundo};
     border-radius: 4px;
     padding: 0 15px;
-    border: 1px solid #eee;
+    border: 1px solid ${colors.borda};
 `;
 
 export const SubmitButton = styled(RectButton)`
     justify-content: center;
     align-items: center;
-    background: #00FF00;
+    background: ${colors.botaoPrincipal};
     border-radius: 4px;
     margin-left: 10px;
     padding: 0 12px;
@@ -48,19 +49,19 @@ export const Avatar = styled.Image`
     width: 64px;
     height: 64px;
     border-radius: 32px;
-    background: #eee;
+    background: ${colors.backgroundsec};
 `;
 
 export const AvatarDetalhes = styled.Image`
     width: 250px;
     height: 250px;
     border-radius: 32px;
-    background: #eee;
+    background: ${colors.backgroundsec};
 `;
 
 export const Name = styled.Text`
     font-size: 18px;
-    color: white;
+    color: ${colors.textFundo};
     font-weight: bold;
     margin-top: 4px;
     text-align: center;
@@ -68,7 +69,7 @@ export const Name = styled.Text`
 
 export const Gender = styled.Text`
     font-size: 14px;
-    color: #333;
+    color: ${colors.textoPrincipal};
     font-weight: bold;
     margin-top: 4px;
     text-align: center;
@@ -76,7 +77,7 @@ export const Gender = styled.Text`
 
 export const Status = styled.Text`
     font-size: 14px;
-    color: #333;
+    color:  ${colors.textoPrincipal};
     font-weight: bold;
     margin-top: 4px;
     text-align: center;
@@ -87,7 +88,7 @@ export const Bio = styled.Text.attrs({
 })`
     font-size: 13px;
     line-height: 18px;
-    color: #999;
+    color:  ${colors.textoSecundario};
     margin-top: 5px;
     text-align: center;
 `;
@@ -96,7 +97,7 @@ export const ProfileButton = styled(RectButton)`
     margin-top: 10px;
     align-self: stretch;
     border-radius: 5px;
-    background: #088A68;
+    background:  ${colors.botaoSecundario};
     justify-content: center;
     align-items: center;
     height: 32px;
@@ -105,7 +106,7 @@ export const ProfileButton = styled(RectButton)`
 export const ProfileButtonText = styled.Text`
     font-size: 14px;
     font-weight: bold;
-    color: #fff;
+    color: ${colors.botaoTexto};
     text-transform: uppercase;
 `;
 
@@ -143,12 +144,13 @@ export const Title = styled.Text.attrs({
 })`
     font-size: 15px;
     font-weight: bold;
-    color: #993;
+    color: ${colors.textoPrincipal};
+    backgroundColor: ${colors.background};
 `;
 
 export const Author = styled.Text`
     font-size: 13px;
-    color: #667;
+    color: ${colors.textoPrincipal};
     margin-top: 2px;
 `;
 
@@ -162,13 +164,13 @@ export const Avatarperfil = styled.Image`
     width: 100px;
     height: 100px;
     border-radius: 50px;
-    background: #eee;
+    background: ${colors.backgroundsec};
 `;
 
 export const Nameperfil = styled.Text`
     font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: ${colors.textoPrincipal};
     margin-top: 4px;
     text-align: center;
 `;
@@ -176,7 +178,7 @@ export const Nameperfil = styled.Text`
 export const Bioperfil = styled.Text`
     font-size: 15px;
     line-height: 18px;
-    color: #999;
+    color: ${colors.textoPrincipal};
     margin-top: 5px;
     text-align: center;
 `;
@@ -184,7 +186,7 @@ export const Bioperfil = styled.Text`
 export const Species = styled.Text`
     font-size: 16px;
     font-weight: bold;
-    color: white;
+    color: ${colors.textoPrincipal};
     margin-top: 4px;
     text-align: center;
 `;
@@ -198,7 +200,7 @@ export const Detalhes = styled.FlatList.attrs({
 export const Created = styled.Text`
     font-size: 16px;
     line-height: 18px;
-    color: white;
+    color: ${colors.textoPrincipal};
     margin-top: 5px;
     text-align: center;
 `;
@@ -206,7 +208,7 @@ export const Created = styled.Text`
 export const TxtDetalhes = styled(Name)`
     font-size: 18px;
     line-height: 18px;
-    color: white;
+    color: ${colors.textoPrincipal};
     margin-top: 15px;
     text-align: center;
 `;

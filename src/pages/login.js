@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-
+import colors from './colors';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -24,7 +24,7 @@ const Login = () => {
   return (
     <View style={styles.container}>
 
-      <TextInput
+        <TextInput
         style={styles.input}
         placeholder="E-mail"
         value={email}
@@ -54,25 +54,27 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.background,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.borda,
+    backgroundColor: colors.textFundo,
     borderRadius: 5,
     padding: 10,
     marginVertical: 10,
     width: '80%',
   },
   button: {
-    backgroundColor: '#3498db',
+    backgroundColor: colors.botaoPrincipal,
     borderRadius: 5,
-    padding: 10,
+    padding: 15,
+    margin: 5,
     width: '80%',
     alignItems: 'center',
   },
   buttonText: {
-    color: '#fff',
+    color: colors.botaoTexto,
     fontWeight: 'bold',
   },
 });

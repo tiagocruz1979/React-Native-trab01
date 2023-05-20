@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../services/api'
-import { Container, AvatarDetalhes,  TxtDetalhes, Header} from './styles';
-
+import { Container, AvatarDetalhes,  TxtDetalhes, Header,  ProfileButton, ProfileButtonText} from './styles';
+import colors from './colors'
 
 export default class Detalhes extends Component{
     state = {
@@ -21,9 +21,6 @@ export default class Detalhes extends Component{
     {
         const {route} = this.props;
         const {card} = route.params;
-        const {detalhes} = this.state;
-
-        console.log(card)
 
         return (
             <Container>
@@ -35,6 +32,13 @@ export default class Detalhes extends Component{
                     <TxtDetalhes>Espécie: {card.species}</TxtDetalhes>
                     <TxtDetalhes>Criado em: {card.created}</TxtDetalhes>
                 </Header>
+                <ProfileButton onPress={() => {
+                    this.props.navigation.navigate('cards');
+                    }}
+                    style={{backgroundColor: colors.botaoPrincipal}}
+                    >
+                    <ProfileButtonText>Fechar</ProfileButtonText>
+                </ProfileButton>
             </Container>
         );
     }
